@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/static/database.css">
+    </head>
+<body>
+<div class="content" style="left: initial;">
+    <h1 style="text-align: center">Booking History</h1>
+    {% if booking|length < 1 %}
+    <h4 style="text-align: center">There is no existing data.</h4>
+    {% else %}
+    <table style="border:1px solid black;margin-left:auto;margin-right:auto;">
+        <tr>
+            <th>Time Slot</th>
+            <th>Day</th>
+            <th>Room</th>
+            <th>Name1</th>
+            <th>Name2</th>
+            <th>Name3</th>
+            <th>Name4</th>
+            <th>Name5</th>
+            
+        </tr>
+        {% for book in booking %}
+            <tr>
+                <td>{{ book.timeslot }}</td>
+                <td>{{ book.room }}</td>
+                <td>{{ book.day }}</td>
+                <td>{{ book.name1 }}</td>
+                <td>{{ book.name2 }}</td>
+                <td>{{ book.name3 }}</td>
+                <td>{{ book.name4 }}</td>
+                <td>{{ book.name5 }}</td>
+                <td>
+                    <a href="/delete/{{book.id}}">Remove Booking</a>
+                    <br>
+                    <a href="/update/{{book.id}}">Change Booking</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+
+</div>
+<div>
+<a id="goodlink" href="/">Back To Main Page.</a>
+</div>
+</body>
+
+</html>

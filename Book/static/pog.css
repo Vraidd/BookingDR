@@ -1,0 +1,57 @@
+body{
+    background: linear-gradient(to left, #2fba93, #312294);
+}
+p {
+    color: rgb(12, 12, 12);
+    font-size: 20px;
+    text-align: center;
+}
+h1 {
+    font-family: Georgia, Serif;
+    color: rgb(37, 87, 4);
+    text-align: center;
+    margin-top: 100px;
+}
+form{
+    text-align: center;
+}
+input[type=text] {
+    width: 300px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid rgb(116, 111, 111);
+  border-radius: 4px;
+}
+input[type=text]:focus {
+    border: 3px solid rgb(14, 20, 16);
+}
+
+select {
+    width: 250px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+a:link{color: #ff0000; 
+    opacity: 0;;
+}
+a:hover{
+    color: #00ff15;
+}
+a:visited{
+    color: aliceblue;
+}
+input[type=submit]{
+  background-color: rgb(23, 32, 23);
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+input[type=submit]:hover{
+  background-color: rgb(242, 247, 242);
+  color: rgb(12, 12, 12);
+}

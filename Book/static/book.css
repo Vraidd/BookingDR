@@ -1,0 +1,75 @@
+body{
+    background: linear-gradient(to left, #2fba93, #312294);
+}
+p {
+    color: rgb(12, 12, 12);
+    font-size: 20px;
+    text-align: center;
+}
+h1 {
+    font-family: Georgia, Serif;
+    color: rgb(37, 87, 4);
+    text-align: center;
+    margin-top: 100px;
+}
+#help{
+    text-align: center;
+}
+form{
+    text-align: center;
+}
+input[type=text] {
+    width: 250px;
+    padding: 8px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid rgb(116, 111, 111);
+  border-radius: 4px;
+}
+input[type=password] {
+    width: 250px;
+    padding: 8px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid rgb(116, 111, 111);
+  border-radius: 4px;
+}
+input[type=text]:focus {
+    border: 3px solid rgb(12, 15, 13);
+}
+input[type=password]:focus {
+    border: 3px solid rgb(12, 15, 13);
+}
+
+select {
+    width: 20%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+a:link{color: aliceblue; 
+}
+a:visited{
+    color: red;
+}
+
+th{
+    border:1px solid black;
+    border-collapse: collapse;
+}
+tr{
+    border:1px solid black;
+    border-collapse: collapse;
+}
+td{
+    border:1px solid black;
+}
+#goodlink{
+  text-align: center;
+}
+#goodlink:visited{
+  color: red
+}
+#goodlink{
+  color:aliceblue
+}

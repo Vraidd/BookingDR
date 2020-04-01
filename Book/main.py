@@ -48,30 +48,18 @@ def book():
         newname3 = request.form['name3']
         newname4 = request.form['name4']
         newname5 = request.form['name5']
-        comptime = BookDR.query.filter_by(timeslot=newtimeslot).first()
-        comproom = BookDR.query.filter_by(room=newroom).first()
-        compday = BookDR.query.filter_by(day=newday).first()
-        if comptime == None or compday == None or comproom == None:
-            new_booking = BookDR(timeslot=newtimeslot, day=newday, room=newroom, name1=newname1,name2=newname2,name3=newname3,name4=newname4,name5=newname5 )
-            try:
-                db.session.add(new_booking)
-                db.session.commit()
-                return render_template('success.html')
-            except:
-                return 'Sorry, there is a problem with booking the slot.'       
-        elif comptime.id == compday.id and compday.id == comproom.id:
-            error = 'Please book another slot.'
-            return render_template('book.html', error = error)
+        compdata = BookDR.query.filter_by(timeslot=newtimeslot, room=newroom, day=newday).first()
+        if compdata == None:
+          new_booking = BookDR(timeslot=newtimeslot, day=newday, room=newroom, name1=newname1,name2=newname2,name3=newname3,name4=newname4,name5=newname5 )
+          try:
+              db.session.add(new_booking)
+              db.session.commit()
+              return render_template('success.html')
+          except:
+              return 'Sorry, there is a problem with booking the slot.'    
         else:
-            new_booking = BookDR(timeslot=newtimeslot, day=newday, room=newroom, name1=newname1,name2=newname2,name3=newname3,name4=newname4,name5=newname5 )
-            try:
-                db.session.add(new_booking)
-                db.session.commit()
-                return render_template("success.html")
-            except:
-                return 'Sorry, there is a problem with booking the slot.'
-    else:
-        return render_template('book.html')
+          error = 'Please book another slot.'
+          return render_template('book.html', error = error)
 
 @main.route('/success', methods = ['POST'])
 def success():

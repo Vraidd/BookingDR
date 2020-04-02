@@ -14,29 +14,7 @@ class BookDR(db.Model):
     name3 = db.Column(db.String(200), default = '-')
     name4 = db.Column(db.String(200), default = '-')
     name5 = db.Column(db.String(200), default = '-')
-
-@main.route('/database', methods=['POST','GET'])
-def database():
-    booking = BookDR.query.order_by(BookDR.id).all()
-    if request.method == 'POST':
-        return render_template('database.html', booking=booking)
-    else:
-        return render_template('login.html')
-
-@main.route('/login', methods=['POST','GET'])
-def login():
-    booking = BookDR.query.order_by(BookDR.id).all()
-    if request.method == 'POST':
-        userid = request.form['userid']
-        password = request.form['password']
-        if userid == 'goodstudent' and password == 'goodstudent1':
-            return render_template('database.html', booking=booking)
-        else:
-            tryhard = "Lmao. Stop trying."
-            return render_template('login.html', tryhard=tryhard)
-    else:
-        return render_template('login.html')
-
+    
 @main.route('/', methods = ['POST','GET'])
 def book():
     if request.method == 'POST':
@@ -60,6 +38,28 @@ def book():
         else:
           error = 'Please book another slot.'
           return render_template('book.html', error = error)
+        
+@main.route('/database', methods=['POST','GET'])
+def database():
+    booking = BookDR.query.order_by(BookDR.id).all()
+    if request.method == 'POST':
+        return render_template('database.html', booking=booking)
+    else:
+        return render_template('login.html')
+
+@main.route('/login', methods=['POST','GET'])
+def login():
+    booking = BookDR.query.order_by(BookDR.id).all()
+    if request.method == 'POST':
+        userid = request.form['userid']
+        password = request.form['password']
+        if userid == 'goodstudent' and password == 'goodstudent1':
+            return render_template('database.html', booking=booking)
+        else:
+            tryhard = "Lmao. Stop trying."
+            return render_template('login.html', tryhard=tryhard)
+    else:
+        return render_template('login.html')
 
 @main.route('/success', methods = ['POST'])
 def success():
